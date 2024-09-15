@@ -4,6 +4,8 @@ import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import Kotlin from "./icons/Kotlin.astro"
+import Android from "./icons/Android.astro"
 
 const TAGS = {
   NEXT: {
@@ -16,25 +18,63 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-[#003159] text-white",
+    icon: Kotlin
+  },
+  ANDROID: {
+    name: "Android",
+    class: "bg-[#003159] text-white",
+    icon: Android,
+  }
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "NarutoMVVM",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
+      "Lista de personajes de la serie animada Naruto. El proyecto obtiene una lista de datos desde un API a través de Retrofit, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
+    //link: "https://svgl.vercel.app/",
+    github: "https://github.com/miguellugom97/NarutoMVVM",
     image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "RickAndMortyApp",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Lista de personajes de la serie Rick y Morty. El proyecto obtiene una lista de datos desde un API a través de Retrofit y muestra el detalle de cada personaje, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
+    //link: "https://svgl.vercel.app/",
+    github: "https://github.com/miguellugom97/RickAndMortyApp",
+    image: "/projects/svgl.webp",
+    tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
+  {
+    title: "MVVMexercise",
+    description:
+      "Lista de citas para programadores. El proyecto obtiene una lista de citas de programadores a través de Retrofit, aplicando MVVM y Clean architecture, ademas se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
+    //link: "https://svgl.vercel.app/",
+    github: "https://github.com/miguellugom97/MVVMexercise",
+    image: "/projects/svgl.webp",
+    tags: [TAGS.KOTLIN, TAGS.ANDROID]
+  },
+  {
+    title: "PruebaTecnica",
+    description:
+      "App de bienestar que contiene un flujo de navegación basico con Bottom Navigation y Navigation Components.",
+    //link: "https://svgl.vercel.app/",
+    github: "https://github.com/miguellugom97/PruebaTecnica",
+    image: "/projects/svgl.webp",
+    tags: [TAGS.KOTLIN, TAGS.ANDROID]
+  },
+  {
+    title: "NarutoApp",
+    description:
+      "App que consume un API creada con ktor, sobre personajes de Naruto. El proyecto obtiene una lista de datos desde un API a través de Retrofit, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt. La UI fue creada con Jetpack Compose.",
+    //link: "https://svgl.vercel.app/",
+    github: "https://github.com/miguellugom97/NarutoApp",
+    image: "/projects/svgl.webp",
+    tags: [TAGS.KOTLIN, TAGS.ANDROID]
+  }
 ]
 ---
 
