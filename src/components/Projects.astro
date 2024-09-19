@@ -31,12 +31,20 @@ const TAGS = {
 }
 const PROJECTS = [
   {
+    title: "Cuentos y Fábulas 4 Kids!",
+    description:
+      "Está aplicación cuenta con una recopilación de cuentos clásicos y fábulas cortas que le gustara a los niños.",
+    link: "https://play.google.com/store/apps/details?id=com.miguellugo.cuentosyfabulas&pcampaignid=web_share",
+    image: "/projects/cuentosyfabulas.png",
+    tags: [TAGS.KOTLIN, TAGS.ANDROID]
+  },
+  {
     title: "NarutoMVVM",
     description:
       "Lista de personajes de la serie animada Naruto. El proyecto obtiene una lista de datos desde un API a través de Retrofit, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
-    link: "",
+    //link: "",
     github: "https://github.com/miguellugom97/NarutoMVVM",
-    image: "/projects/svgl.webp",
+    image: "/projects/narutomvvm.png",
     tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
   {
@@ -45,7 +53,7 @@ const PROJECTS = [
       "Lista de personajes de la serie Rick y Morty. El proyecto obtiene una lista de datos desde un API a través de Retrofit y muestra el detalle de cada personaje, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
     //link: "https://svgl.vercel.app/",
     github: "https://github.com/miguellugom97/RickAndMortyApp",
-    image: "/projects/svgl.webp",
+    image: "/projects/rickandmortyapp.png",
     tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
   {
@@ -54,7 +62,7 @@ const PROJECTS = [
       "Lista de citas para programadores. El proyecto obtiene una lista de citas de programadores a través de Retrofit, aplicando MVVM y Clean architecture, ademas se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
     //link: "https://svgl.vercel.app/",
     github: "https://github.com/miguellugom97/MVVMexercise",
-    image: "/projects/svgl.webp",
+    image: "/projects/mvvmexercise.png",
     tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
   {
@@ -63,7 +71,7 @@ const PROJECTS = [
       "App de bienestar que contiene un flujo de navegación basico con Bottom Navigation y Navigation Components.",
     //link: "https://svgl.vercel.app/",
     github: "https://github.com/miguellugom97/PruebaTecnica",
-    image: "/projects/svgl.webp",
+    image: "/projects/pruebatecnica.png",
     tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
   {
@@ -72,7 +80,7 @@ const PROJECTS = [
       "App que consume un API creada con ktor, sobre personajes de Naruto. El proyecto obtiene una lista de datos desde un API a través de Retrofit, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt. La UI fue creada con Jetpack Compose.",
     //link: "https://svgl.vercel.app/",
     github: "https://github.com/miguellugom97/NarutoApp",
-    image: "/projects/svgl.webp",
+    image: "/projects/narutoapp.png",
     tags: [TAGS.KOTLIN, TAGS.ANDROID]
   }
 ]
@@ -118,7 +126,7 @@ const PROJECTS = [
           {link && (
             <LinkButton href={link}>
               <Link class="size-4" />
-              Preview
+              Google Play
             </LinkButton>
           )}
         </footer>
