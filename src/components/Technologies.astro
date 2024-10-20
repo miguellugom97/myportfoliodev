@@ -2,6 +2,7 @@
 import KotlinIcon from "./icons/Kotlin.astro"
 import AndroidIcon from "./icons/Android.astro"
 import FirebaseIcon from "./icons/Firebase.astro"
+import FlutterIcon from "./icons/Flutter.astro"
 
 enum TechnologyType {
   Frontend = 1,
@@ -24,11 +25,17 @@ const TECHNOLOGIES = [
     type: TechnologyType.Frontend,
   },
   {
+    name: 'Flutter',
+    icon: FlutterIcon,
+    colorClasses: 'bg-cyan-300/40 dark:bg-cyan-300/40',
+    type: TechnologyType.Frontend
+  },
+  {
     name: 'Firebase',
     icon: FirebaseIcon,
     colorClasses: 'bg-yellow-300/40 dark:bg-yellow-300/40',
     type: TechnologyType.Backend
-  },
+  }
   //Se comenta para tener una referencia en colores dark y light.
   //{
     //name: 'Firebase',

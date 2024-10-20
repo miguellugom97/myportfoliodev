@@ -6,6 +6,7 @@ import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import Kotlin from "./icons/Kotlin.astro"
 import Android from "./icons/Android.astro"
+import Flutter from "./icons/Flutter.astro"
 
 const TAGS = {
   NEXT: {
@@ -27,6 +28,11 @@ const TAGS = {
     name: "Android",
     class: "bg-[#003159] text-white",
     icon: Android,
+  },
+  FLUTTER: {
+    name: "Flutter",
+    class: "bg-[#003159] text-white",
+    icon: Flutter
   }
 }
 const PROJECTS = [
@@ -48,13 +54,13 @@ const PROJECTS = [
     tags: [TAGS.KOTLIN, TAGS.ANDROID]
   },
   {
-    title: "RickAndMortyApp",
+    title: "DragonBallCatalog",
     description:
-      "Lista de personajes de la serie Rick y Morty. El proyecto obtiene una lista de datos desde un API a través de Retrofit y muestra el detalle de cada personaje, aplicando MVVM y Clean architecture, además se utilizaron corrutinas e inyección de dependencias con Dagger Hilt.",
+      "Catalogo de los personajes de Dragon Ball hecho en Flutter aplicando Clean architecture.",
     //link: "https://svgl.vercel.app/",
-    github: "https://github.com/miguellugom97/RickAndMortyApp",
-    image: "/projects/rickandmortyapp.png",
-    tags: [TAGS.KOTLIN, TAGS.ANDROID]
+    github: "https://github.com/miguellugom97/dragon_ball_catalog",
+    image: "/projects/dragonballcatalog.png",
+    tags: [TAGS.FLUTTER]
   },
   {
     title: "MVVMexercise",
