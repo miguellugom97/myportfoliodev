@@ -1,61 +1,94 @@
 # Copilot Instructions for myportfoliodev
 
-Purpose: Equip AI coding agents to work productively on this Astro + Tailwind portfolio.
+Purpose: Equip AI coding agents to work prod## Barra de Calidad
+- Mantén los componentes de presentación y enfocados; coloca JS mínimo para interacciones.
+- Sigue el enfoque utility-first de Tailwind; evita CSS personalizado a menos que sea necesario en bloques `<style>`.
+- Coincide con la nomenclatura de clases y espaciado existentes; prefiere `size-*` para iconos.
+- Asegúrate de que todas las páginas utilicen el componente `Layout` para mantener la coherencia.
+
+Si algún flujo de trabajo o convención no está claro (ej., pasos de despliegue de Firebase, añadir pruebas), pide detalles y refinaré estas instrucciones.ly on this Astro + Tailwind portfolio.
 
 ## Stack & Architecture
-- Framework: `Astro 4` with islands of interactivity using inline `<script is:inline>` in `.astro` files. Styling via `TailwindCSS` (`darkMode: 'class'`).
-- Structure: `src/pages` (routes), `src/layouts` (page wrappers), `src/components` (UI building blocks), `src/components/icons` (SVG icons as Astro components), `public/` (static assets).
-- Layout: `src/layouts/Layout.astro` defines `<head>`, fonts (`@fontsource-variable/onest`), global styles, and `Header`/`Footer`. Use it to wrap pages.
-- Navigation/sections: Sections rendered with `SectionContainer.astro`; header links and IntersectionObserver rely on each section having `id` matching nav `aria-label`.
-- Transitions: Uses `astro:transitions` `ViewTransitions` in layout; listen to `astro:after-swap` when persisting client state (see `ThemeToggle.astro`).
+- Framework: `Astro 4` con islas de interactividad usando `<script is:inline>` en archivos `.astro`. Estilos con `TailwindCSS` (`darkMode: 'class'`).
+- Estructura: `src/pages` (rutas), `src/layouts` (envoltorios de página), `src/components` (bloques de UI), `src/components/icons` (iconos SVG como componentes Astro), `public/` (activos estáticos).
+- Layout: `src/layouts/Layout.astro` define `<head>`, fuentes (`@fontsource-variable/onest`), estilos globales y `Header`/`Footer`. Úsalo para envolver páginas.
+- Navegación/secciones: Secciones renderizadas con `SectionContainer.astro`; los enlaces del encabezado e IntersectionObserver dependen de que cada sección tenga un `id` que coincida con el `aria-label` de navegación.
+- Transiciones: Usa `astro:transitions` `ViewTransitions` en layout; escucha `astro:after-swap` cuando persista el estado del cliente (ver `ThemeToggle.astro`).
 
-## Conventions
-- Imports: Use path alias `@/*` → `src/*` (see `tsconfig.json`). Prefer absolute imports like `@/components/Hero.astro`.
-- Styling: Prefer utility classes; shared section wrapper is `SectionContainer` which adds responsive container + `scroll-m-20`.
-- Icons: Reusable Astro icon components live in `src/components/icons/` and accept `class` for sizing (`size-*`).
-- Client JS: Keep scripts minimal and inline (`<script is:inline>`) within the component/page that owns the behavior. Persist UI across transitions via `astro:*` events.
-- Dark mode: Toggle by adding/removing `dark` on `document.documentElement`. Respect `localStorage('theme')` and system preference.
+## Convenciones
+- Importaciones: Usa el alias de ruta `@/*` → `src/*` (ver `tsconfig.json`). Prefiere importaciones absolutas como `@/components/Hero.astro`.
+- Estilos: Prefiere clases de utilidad; el envoltorio de sección compartido es `SectionContainer` que agrega contenedor responsive + `scroll-m-20`.
+- Iconos: Los componentes de iconos reutilizables de Astro viven en `src/components/icons/` y aceptan `class` para dimensionamiento (`size-*`).
+- JS Cliente: Mantén los scripts mínimos e en línea (`<script is:inline>`) dentro del componente/página que posee el comportamiento. Persiste la UI a través de transiciones vía eventos `astro:*`.
+- Modo oscuro: Alterna añadiendo/eliminando `dark` en `document.documentElement`. Respeta `localStorage('theme')` y preferencia del sistema.
 
 ## Build, Run, Deploy
-- Dev server: `pnpm dev` (alias `pnpm start`) runs `astro dev`.
-- Type check + build: `pnpm build` runs `astro check && astro build` with output to `dist/`.
-- Preview: `pnpm preview` serves the built site locally.
-- Hosting: `firebase.json` serves `dist/` and rewrites `** → /index.html`. Deploy via Firebase Hosting (repo does not include CLI scripts; use `firebase deploy`).
+- Servidor de desarrollo: `pnpm dev` (alias `pnpm start`) ejecuta `astro dev`.
+- Verificación de tipos + build: `pnpm build` ejecuta `astro check && astro build` con salida a `dist/`.
+- Vista previa: `pnpm preview` sirve el sitio construido localmente.
+- Hosting: `firebase.json` sirve `dist/` y reescribe `** → /index.html`. Despliega vía Firebase Hosting (el repo no incluye scripts CLI; usa `firebase deploy`).
 
-## Key Files
-- `astro.config.mjs`: Integrations `@astrojs/tailwind` and `astro-robots-txt`; `site` and `build.outDir` set.
-- `tailwind.config.mjs`: Scans `.astro|html|js|ts|jsx|tsx|md(x)|svelte|vue` under `src/`; `darkMode: 'class'`.
-- `src/layouts/Layout.astro`: Global styles, background gradients, and `ViewTransitions` setup.
-- `src/components/Header.astro`: Top nav; highlights active section via `IntersectionObserver` using `data-section`/`id` from `SectionContainer`.
-- `src/components/ThemeToggle.astro`: Theme dropdown, localStorage key `theme`, updates icons and `documentElement.classList`.
-- `src/components/Projects.astro`: Project cards; tags defined inline with icon components.
+## Archivos Clave
+- `astro.config.mjs`: Integraciones `@astrojs/tailwind` y `astro-robots-txt`; `site` y `build.outDir` configurados.
+- `tailwind.config.mjs`: Escanea `.astro|html|js|ts|jsx|tsx|md(x)|svelte|vue` bajo `src/`; `darkMode: 'class'`.
+- `src/layouts/Layout.astro`: Estilos globales, gradientes de fondo y configuración de `ViewTransitions`.
+- `src/components/Header.astro`: Navegación superior; resalta la sección activa vía `IntersectionObserver` usando `data-section`/`id` de `SectionContainer`.
+- `src/components/ThemeToggle.astro`: Desplegable de tema, clave localStorage `theme`, actualiza iconos y `documentElement.classList`.
+- `src/components/Projects.astro`: Tarjetas de proyectos; etiquetas definidas en línea con componentes de iconos.
+- `src/components/SectionContainer.astro`: Contenedor reutilizable para secciones con `scroll-m-20` para desplazamiento suave.
 
-## Patterns & Gotchas
-- Sections and nav: When creating a new section, wrap in `SectionContainer` and set `id` (e.g., `id="proyectos"`), then add matching nav entry `{ aria-label: 'proyectos', href: '/#proyectos' }`.
-- Transitions + state: After route swaps, reapply theme and reset scroll: see `document.addEventListener('astro:after-swap', ...)` in `ThemeToggle.astro`.
-- Accessibility: Provide `aria-label` on nav links, `sr-only` text for icon-only buttons, and descriptive `alt` on images.
-- Assets: Place static files in `public/` (e.g., `public/projects/*`). Use full URLs for remote images as currently done in `Projects.astro`.
-- Aliases: Ensure `tsconfig.json` `paths` are respected in imports; Vite handles it via Astro config.
+## Patrones & Consideraciones
+- Secciones y navegación: Al crear una nueva sección, envuélvela en `SectionContainer` y establece `id` (ej., `id="proyectos"`), luego agrega entrada de navegación coincidente `{ aria-label: 'proyectos', href: '/#proyectos' }`.
+- Transiciones + estado: Después de intercambios de ruta, vuelve a aplicar el tema y restablece el desplazamiento: ver `document.addEventListener('astro:after-swap', ...)` en `ThemeToggle.astro`.
+- Accesibilidad: Proporciona `aria-label` en enlaces de navegación, texto `sr-only` para botones solo con iconos y `alt` descriptivo en imágenes.
+- Assets: Coloca archivos estáticos en `public/` (ej., `public/projects/*`). Usa URLs completas para imágenes remotas como se hace actualmente en `Projects.astro`.
+- Alias: Asegúrate de que `tsconfig.json` `paths` sean respetados en importaciones; Vite los maneja vía configuración de Astro.
+- IntersectionObserver: La navegación utiliza un observer para destacar la sección activa durante el desplazamiento - implementado en `Header.astro`.
 
-## Common Tasks
-- Add a page: Create `src/pages/<slug>.astro`, wrap with `Layout`, export `title`/`description` props.
-- Add a component: Place in `src/components/Name.astro`; accept `class` and forward via `class={className}` as done in `SectionContainer`.
-- Add an icon: New file in `src/components/icons/` exporting markup; pass `class` for sizing.
-- Add a project card: Edit `src/components/Projects.astro` `PROJECTS` array; tag objects exist in-file.
-- Update theme behavior: Edit `ThemeToggle.astro`; keep `updateTheme()` and `updateIcon()` in sync.
+## Tareas Comunes
+- Agregar una página: Crea `src/pages/<slug>.astro`, envuelve con `Layout`, exporta propiedades `title`/`description`.
+- Agregar un componente: Colócalo en `src/components/Name.astro`; acepta `class` y reenvía vía `class={className}` como se hace en `SectionContainer`.
+- Agregar un icono: Nuevo archivo en `src/components/icons/` exportando marcado; pasa `class` para dimensionamiento.
+- Agregar una tarjeta de proyecto: Edita array `PROJECTS` en `src/components/Projects.astro`; objetos de etiquetas existen en el archivo.
+- Actualizar comportamiento de tema: Edita `ThemeToggle.astro`; mantén `updateTheme()` y `updateIcon()` sincronizados.
 
-## Example Snippets
-- Import with alias: `import Layout from '@/layouts/Layout.astro'`
-- Section pattern:
+## Ejemplos de Fragmentos
+- Importación con alias: `import Layout from '@/layouts/Layout.astro'`
+- Patrón de sección:
   ```astro
   <SectionContainer id="contacto">
     <h2 class="text-3xl font-semibold">Contacto</h2>
-    <!-- content -->
+    <!-- contenido -->
   </SectionContainer>
   ```
-- Nav entry in `Header.astro`:
+- Entrada de navegación en `Header.astro`:
   ```ts
   { title: 'Contacto', label: 'contacto', url: '/#contacto' }
+  ```
+- Componente de icono nuevo (ej., `src/components/icons/NewIcon.astro`):
+  ```astro
+  ---
+  interface Props {
+    class?: string
+  }
+  
+  const { class: className } = Astro.props
+  ---
+  
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <!-- Contenido SVG aquí -->
+  </svg>
   ```
 
 ## Quality Bar
