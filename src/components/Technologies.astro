@@ -3,6 +3,7 @@ import KotlinIcon from "./icons/Kotlin.astro"
 import AndroidIcon from "./icons/Android.astro"
 import FirebaseIcon from "./icons/Firebase.astro"
 import FlutterIcon from "./icons/Flutter.astro"
+import SwiftIcon from "./icons/Swift.astro"
 
 enum TechnologyType {
   Frontend = 1,
@@ -13,16 +14,16 @@ enum TechnologyType {
 
 const TECHNOLOGIES = [
   {
-    name: "Kotlin",
-    icon: KotlinIcon,
-    colorClasses: 'bg-purple-300/40 dark:bg-purple-300/40',
-    type: TechnologyType.Frontend,
-  },
-  {
     name: "Android",
     icon: AndroidIcon,
     colorClasses: 'bg-green-300/40 dark:bg-green-300/40',
     type: TechnologyType.Frontend,
+  },
+  {
+    name: 'iOS',
+    icon: SwiftIcon,
+    colorClasses: 'bg-gray-300/40 dark:bg-gray-300/40',
+    type: TechnologyType.Frontend
   },
   {
     name: 'Flutter',
@@ -53,7 +54,7 @@ const TECHNOLOGIES = [
         class={`flex flex-col items-center justify-center p-4 transition-all duration-300 ${technology.colorClasses} hover:scale-110 rounded-lg shadow-md`}
       >
         <technology.icon className="size-12" />
-        <span class="mt-2 text-sm font-semibold text-white">
+        <span class="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-300">
           {technology.name}
         </span>
       </div>
