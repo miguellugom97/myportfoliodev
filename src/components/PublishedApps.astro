@@ -1,7 +1,6 @@
 ---
-import AppStore from "./icons/AppStore.astro"
-import GooglePlay from "./icons/GooglePlay.astro"
-import LinkButton from "./LinkButton.astro"
+import DownloadAppStore from "./icons/DownloadAppStore.astro"
+import DownloadPlayStore from "./icons/DownloadPlayStore.astro"
 
 const APPS = [
   {
@@ -39,16 +38,14 @@ const APPS = [
         <p class="text-gray-600 dark:text-gray-300 text-center mb-6 text-pretty">{description}</p>
         <div class="flex gap-4 flex-wrap justify-center">
           {linkAndroid && (
-            <LinkButton href={linkAndroid}>
-              <GooglePlay class="size-6" />
-              Google Play
-            </LinkButton>
+            <a href={linkAndroid} target="_blank" rel="noopener noreferrer" class="transition hover:scale-105">
+              <DownloadPlayStore />
+            </a>
           )}
           {linkIOS && (
-            <LinkButton href={linkIOS}>
-              <AppStore class="size-6" />
-              App Store
-            </LinkButton>
+            <a href={linkIOS} target="_blank" rel="noopener noreferrer" class="transition hover:scale-105">
+              <DownloadAppStore />
+            </a>
           )}
         </div>
       </article>
