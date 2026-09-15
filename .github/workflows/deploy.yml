@@ -1,29 +1,24 @@
-name: Deploy to Hostinger
+name: Deploy Portfolio
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: npm install
+      - name: Instalar dependencias
+        run: npm ci
 
-    - name: Build project
-      run: npm run build
+      - name: Compilar Astro
+        run: npm run build
 
-    - name: Deploy to Hostinger
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      with:
-        server: 46.202.182.17
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist/
-        server-dir: domains/miguellugodev.com/public_html/
+      - name: Publicar en Nginx
+        run: |
+          rm -rf /home/miguellugom97admin/servicios/portfolio/*
+          cp -r dist/* /home/miguellugom97admin/servicios/portfolio/
